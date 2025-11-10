@@ -267,8 +267,7 @@ nav {
     overflow: hidden;
     padding: 0;
     box-sizing: border-box;
-    border-radius: 20px; /* <-- add this */
-    border: 1px solid rgba(183, 110, 121, 0.3); /* optional border */
+    border-radius: 18px; /* <-- add this */
 }
 
 .product-grid {
@@ -284,7 +283,7 @@ nav {
     margin: 0 auto;
     background: rgba(26, 15, 15, .6);
     padding: 3rem 2rem;
-    border-radius: 20px;
+    border-radius: 0px;
     text-align: center;
     box-shadow: 0 5px 25px rgba(183, 110, 121, .3), 0 0 40px rgba(183, 110, 121, .1), inset 0 0 30px rgba(183, 110, 121, .05);
     border: 1px solid rgba(183, 110, 121, .3);
