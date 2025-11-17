@@ -47,3 +47,14 @@ function resetAutoScroll() {
 }
 
 startAutoScroll();
+
+window.addEventListener('load', () => {
+  let count = localStorage.getItem('visitorCount');
+  if (count === null) {
+    count = 1;
+  } else {
+    count = parseInt(count) + 1;
+  }
+  localStorage.setItem('visitorCount', count);
+  document.getElementById('visitor-count').innerText = count;
+});

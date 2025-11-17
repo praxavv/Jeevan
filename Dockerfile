@@ -1,11 +1,22 @@
-# Use a lightweight Nginx image
+# Stage 1: Build the Astro project
+FROM node:20-alpine as builder
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
+# Stage 2: Serve the static files with Nginx
 FROM nginx:alpine
 
-# Copy all the website files to the Nginx public directory
-COPY . /usr/share/nginx/html
+# Copy the built Astro project from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Expose port 80
+# Expose port 80 for web traffic
 EXPOSE 80
 
-# Start Nginx when the container launches
+# Command to run Nginx
 CMD ["nginx", "-g", "daemon off;"]
